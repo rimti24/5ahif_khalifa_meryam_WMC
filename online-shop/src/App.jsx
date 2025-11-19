@@ -1,24 +1,30 @@
-import { useState } from 'react'
-import './App.css'
+import { useState } from "react";
+import ProductOverview from "./components/ProductOverview";
+import Cart from "./components/Cart";
+import products from "./data/products";
 
-function App() {
-  const [count, setCount] = useState(0)
 
-  return (
-    <>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+export default function App() {
+    const [cart, setCart] = useState([]);
+
+
+    const addToCart = (product) => {
+        setCart((prev) => {
+            const existing = prev.find((p) => p.id === product.id);
+            if (existing) {
+                return prev.map((p) =>
+                    p.id === product.id ? { ...p, quantity: p.quantity + 1 } : p
+                );
+            }
+            return [...prev, { ...product, quantity: 1 }];
+        });
+    };
+
+
+    return (
+        <div>
+            <ProductOverview products={products} addToCart={addToCart} />
+            <Cart cart={cart} />
+        </div>
+    );
 }
-
-export default App
