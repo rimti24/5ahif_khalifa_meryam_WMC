@@ -45,11 +45,23 @@ export default function Shop() {
         });
     };
 
+    const removeFromCart = (productId) => {
+        setCart((prev) => prev.filter((p) => p.id !== productId));
+    };
+
+    const increaseStock = (productId) => {
+        setCart((prev) =>
+            prev.map((p) =>
+                p.id === productId ? { ...p, quantity: p.quantity + 1 } : p
+            )
+        );
+    }
+
 
     return (
         <div>
             <ProductOverview products={products} addToCart={addToCart} />
-            <Cart cart={cart} />
+            <Cart cart={cart} removeFromCart={removeFromCart} increaseStock={increaseStock} />
         </div>
 
     );
