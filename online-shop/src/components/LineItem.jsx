@@ -9,12 +9,12 @@ export default function LineItem({ item, removeFromCart, increaseStock }) {
             </div>
 
             <div className="cart-price">
-                <p>${item.price}</p>
-                <p><strong>${item.price * item.quantity}</strong></p>
+                <p>Product-Price: ${item.price* 1.00}</p>
+                <p><strong>Total-Price: ${item.price * item.quantity * 1.00}</strong></p>
             </div>
 
             <button onClick={() => removeFromCart(item.id)}>Remove</button>
-            <button onClick={() => increaseStock(item.id)}>Increase Stock</button>
+            <button onClick={() => increaseStock(item.id)}>+</button>
         </div>
     );
 }
