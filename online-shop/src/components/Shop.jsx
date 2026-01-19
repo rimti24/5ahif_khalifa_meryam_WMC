@@ -43,6 +43,17 @@ export default function Shop() {
             .then(setProducts);
     }, []);
 
+    useEffect(() => {
+        fetch("http://localhost:3000/api/carts", {
+            method: "DELETE"
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data.message);
+            })
+            .catch(err => console.error(err));
+    }, []);
+
     //PURE FRONTEND CART FUNCTIONS
 
     /*const addToCart = (product) => {

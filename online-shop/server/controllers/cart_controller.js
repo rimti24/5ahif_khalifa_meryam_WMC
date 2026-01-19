@@ -2,10 +2,9 @@ import fs from "fs";
 
 const filePath = "./data/carts.json";
 
-export function clearCarts(req, res) {
+export const clearCarts = () => {
     fs.writeFileSync(filePath, JSON.stringify([], null, 2));
-    res.status(200).json({ message: "Carts cleared" });
-}
+};
 
 export function getCart(req, res) {
     const cart = JSON.parse(fs.readFileSync(filePath));

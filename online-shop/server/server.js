@@ -11,10 +11,15 @@ const PORT = 3001;
 app.use(cors());
 app.use(express.json());
 
+app.delete("/carts", (req, res) => {
+    clearCarts();
+    res.status(200).json({ message: "Alle Carts gelöscht" });
+});
+
 app.use("/api/products", productRoutes);
 app.use("/api/cart", cartRoutes);
 
-clearCarts(); // Carts beim Serverstart leeren
+
 
 app.listen(PORT, () => {
     console.log(`Server läuft auf http://localhost:${PORT}`);

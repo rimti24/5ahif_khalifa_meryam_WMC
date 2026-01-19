@@ -3,7 +3,6 @@ import fs from "fs";
 const filePath = "./data/products.json";
 
 export function getProducts(req, res) {
-
     const data = JSON.parse(fs.readFileSync(filePath));
     res.json(data);
 }
