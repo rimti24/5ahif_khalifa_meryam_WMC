@@ -47,7 +47,7 @@ export default function Shop() {
 useEffect(() => {
 
 })
-    const clearCarts=() => {
+  /*  const clearCarts=() => {
         fetch("http://localhost:3000/api/cart", {
             method: "DELETE"
         })
@@ -56,7 +56,7 @@ useEffect(() => {
                 console.log(data.message);
             })
             .catch(err => console.error(err));
-    };
+    };*/
 
     //PURE FRONTEND CART FUNCTIONS
 
