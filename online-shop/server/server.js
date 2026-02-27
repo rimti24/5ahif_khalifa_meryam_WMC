@@ -11,7 +11,7 @@ const PORT = 3001;
 app.use(cors());
 app.use(express.json());
 
-app.delete("/carts", (req, res) => {
+app.delete("/deletecarts", (req, res) => {
     clearCarts();
     res.status(200).json({ message: "Alle Carts gelöscht" });
 });

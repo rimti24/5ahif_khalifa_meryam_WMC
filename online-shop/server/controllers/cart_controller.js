@@ -2,8 +2,9 @@ import fs from "fs";
 
 const filePath = "./data/carts.json";
 
-export const clearCarts = () => {
+export function clearCarts(req, res) {
     fs.writeFileSync(filePath, JSON.stringify([], null, 2));
+    res.json({ message: "Alle Carts gelöscht" });
 };
 
 export function getCart(req, res) {
@@ -34,3 +35,4 @@ export function removeFromCart(req, res) {
     fs.writeFileSync(filePath, JSON.stringify(cart, null, 2));
     res.json(cart);
 }
+
