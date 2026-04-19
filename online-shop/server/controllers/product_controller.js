@@ -1,14 +1,15 @@
 import fs from "fs";
+import  path from "path";
 
-const filePath = "./data/products.json";
+const filePath = path.resolve("data/products.json");
 
 export function getProducts(req, res) {
-    const data = JSON.parse(fs.readFileSync(filePath));
+    const data = JSON.parse(fs.readFileSync(filePath, "utf-8"));
     res.json(data);
 }
 
 export function getProductById(req, res) {
-    const data = JSON.parse(fs.readFileSync(filePath));
+    const data = JSON.parse(fs.readFileSync(filePath, "utf-8"));
     const product = data.find(p => p.id === Number(req.params.id));
 
     if (!product) {

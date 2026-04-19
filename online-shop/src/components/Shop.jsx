@@ -1,7 +1,7 @@
 import Cart from "./Cart.jsx";
 import ProductOverview from "./ProductOverview.jsx";
 import { useEffect, useState} from "react";
-import {clearCarts} from "../../server/controllers/cart_controller.js";
+//import {clearCarts} from "../../server/controllers/cart_controller.js";
 
 export default function Shop() {
     //PRODUCTS STATE FOR BACKEND FETCHING
@@ -37,16 +37,31 @@ export default function Shop() {
 
     ];*/
 
+
+    useEffect(() => {
+        fetch("http://localhost:3001/api/cart")
+            .then(res => res.json())
+            .then(setCart);
+    }, []);
+
+
     //USE  EFFECT FÜR BACKEND FETCHING PRODUCTS
     useEffect(() => {
         fetch("http://localhost:3001/api/products")
-            .then(res => res.json())
-            .then(setProducts);
+            .then(res => {
+                console.log("STATUS:", res.status);
+                return res.json();
+            })
+            .then(data => {
+                console.log("DATA:", data);
+                setProducts(data);
+            })
+            .catch(err => console.error("FETCH ERROR:", err));
     }, []);
 
-useEffect(() => {
+//useEffect(() => {
 
-})
+//})
   /*  const clearCarts=() => {
         fetch("http://localhost:3000/api/cart", {
             method: "DELETE"

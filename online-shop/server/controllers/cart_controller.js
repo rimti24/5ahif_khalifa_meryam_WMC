@@ -1,6 +1,7 @@
 import fs from "fs";
+import path from "path";
 
-const filePath = "./data/carts.json";
+const filePath = path.resolve("data/carts.json");
 
 export function clearCarts(req, res) {
     fs.writeFileSync(filePath, JSON.stringify([], null, 2));
@@ -8,12 +9,12 @@ export function clearCarts(req, res) {
 };
 
 export function getCart(req, res) {
-    const cart = JSON.parse(fs.readFileSync(filePath));
+    const cart = JSON.parse(fs.readFileSync(filePath, "utf-8"));
     res.json(cart);
 }
 
 export function addToCart(req, res) {
-    const cart = JSON.parse(fs.readFileSync(filePath));
+    const cart = JSON.parse(fs.readFileSync(filePath, "utf-8"));
     const item = req.body;
 
     const existing = cart.find(p => p.id === item.id);

@@ -1,17 +1,10 @@
 [
   {
-    "id": 1,
-    "name": "City Police Station",
-    "image": "https://m.media-amazon.com/images/I/A1wLLVjNhaL._AC_SL1500_.jpg",
-    "price": 99,
-    "quantity": 1
-  },
-  {
     "id": 2,
     "name": "City Fire Truck",
     "image": "https://d3fa68hw0m2vcc.cloudfront.net/89f/274860214.jpeg",
     "price": 59,
-    "quantity": 2
+    "quantity": 3
   },
   {
     "id": 3,
@@ -25,6 +18,13 @@
     "name": "Star Wars Millennium Falcon",
     "image": "https://gzhls.at/pix/bc/d3/bcd356b683bfeacf-n.webp",
     "price": 159,
-    "quantity": 2
+    "quantity": 1
+  },
+  {
+    "id": 1,
+    "name": "City Police Station",
+    "image": "https://m.media-amazon.com/images/I/A1wLLVjNhaL._AC_SL1500_.jpg",
+    "price": 99,
+    "quantity": 1
   }
 ]
